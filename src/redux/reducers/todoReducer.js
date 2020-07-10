@@ -71,7 +71,7 @@ export default (state = initialState, action) => {
           return todo.title.match(regex);
         }),
       };
-    case actionTypes.FILTER_COMPLETED:
+    case actionTypes.FILTER_BY_TYPE:
       return {
         ...state,
         // Mengfilter todos jika action.payload bukan Completed

@@ -30,7 +30,7 @@ const Modal = ({ title, content, onConfirm, onClose, children }) => {
     return () => {
       modalRoot.removeChild(el);
     };
-  }, []);
+  }, [el]);
   const handleClose = (e) => {
     e.stopPropagation();
   };

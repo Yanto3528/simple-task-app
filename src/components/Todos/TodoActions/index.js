@@ -9,10 +9,10 @@ const TodoActions = ({ type, onEdit, onToggleModal }) => {
   return (
     <TodoActionsContainer>
       <Badge type={type}>{type}</Badge>
-      <Icon onClick={onEdit}>
+      <Icon onClick={onEdit} data-testid="edit-icon">
         <FiEdit2 />
       </Icon>
-      <Icon onClick={onToggleModal}>
+      <Icon onClick={onToggleModal} data-testid="delete-icon">
         <BsTrash />
       </Icon>
     </TodoActionsContainer>

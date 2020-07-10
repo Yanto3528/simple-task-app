@@ -28,14 +28,14 @@ const Todo = ({ todo, toggleTodoCompleted, deleteTodo }) => {
   };
 
   return (
-    <TodoContainer exit={{ opacity: 0 }}>
+    <TodoContainer exit={{ opacity: 0 }} data-testid="todo">
       <input type="checkbox" checked={completed} onChange={handleChange} />
       <div onClick={() => history.push(`/todo/${todo.id}`)}>
         <TodoTitle completed={completed}>{title}</TodoTitle>
       </div>
       <IconGroup>
         <Badge type={type}>{type}</Badge>
-        <Icon onClick={toggleDeleteModal}>
+        <Icon onClick={toggleDeleteModal} data-testid="delete-icon">
           <BsTrash />
         </Icon>
       </IconGroup>

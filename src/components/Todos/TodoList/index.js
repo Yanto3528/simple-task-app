@@ -9,13 +9,6 @@ import { TodoListContainer } from "./styles";
 const todoStyles = { textAlign: "center", marginTop: "20px" };
 
 const TodoList = ({ todos, filtered }) => {
-  // Map semua elemen todos lalu tampung pada variabel todoList
-  const todoList = todos.map((todo) => <Todo key={todo.id} todo={todo} />);
-
-  // Map semua elemen filtered lalu tampung pada variabel filteredTodos
-  const filteredTodos =
-    filtered && filtered.map((todo) => <Todo key={todo.id} todo={todo} />);
-
   // Jika state todos.length adalah 0 maka return placeholder untuk user
   if (todos.length === 0) {
     return <h2 style={todoStyles}>There is no todos. Create one now</h2>;
@@ -27,7 +20,9 @@ const TodoList = ({ todos, filtered }) => {
   return (
     <TodoListContainer>
       <AnimatePresence>
-        {filtered !== null ? filteredTodos : todoList}
+        {filtered !== null
+          ? filtered.map((todo) => <Todo key={todo.id} todo={todo} />)
+          : todos.map((todo) => <Todo key={todo.id} todo={todo} />)}
       </AnimatePresence>
     </TodoListContainer>
   );
