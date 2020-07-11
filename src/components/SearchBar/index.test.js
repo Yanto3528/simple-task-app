@@ -1,5 +1,6 @@
 import React from "react";
 import { screen, fireEvent } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import configureStore from "redux-mock-store";
 import { filterTodo, clearFilter, filterByType } from "../../redux/actions";
 import { renderWithRedux } from "../../testHelpers";
@@ -24,9 +25,8 @@ describe("on change event", () => {
     test("search todo by typing text", () => {
       store.dispatch = jest.fn();
       renderWithRedux(<SearchBar />, store);
-      fireEvent.change(screen.getByPlaceholderText(/Search/i), {
-        target: { value: "do" },
-      });
+      userEvent.type(screen.getByPlaceholderText(/Search/i), "do");
+      expect(store.dispatch).toHaveBeenCalledTimes(2);
       expect(store.dispatch).toHaveBeenCalledWith(filterTodo("do"));
     });
     test("click on select filter", () => {
@@ -52,6 +52,7 @@ describe("on change event", () => {
       fireEvent.change(screen.getByPlaceholderText(/Search/i), {
         target: { value: "" },
       });
+      expect(store.dispatch).toHaveBeenCalledTimes(2);
       expect(store.dispatch).toHaveBeenCalledWith(clearFilter());
     });
     test("no select value", () => {
@@ -60,6 +61,7 @@ describe("on change event", () => {
       fireEvent.change(screen.getByDisplayValue(/Filter/i), {
         target: { value: "" },
       });
+      expect(store.dispatch).toHaveBeenCalledTimes(1);
       expect(store.dispatch).toHaveBeenCalledWith(clearFilter());
     });
   });

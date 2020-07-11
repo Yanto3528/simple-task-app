@@ -20,5 +20,5 @@ test("render correctly", () => {
   expect(screen.getByDisplayValue("Learn React")).not.toBeNull();
   expect(screen.getByDisplayValue("React Testing")).not.toBeNull();
   expect(screen.getByDisplayValue("2020-07-10")).not.toBeNull();
-  expect(screen.getByDisplayValue("Urgent"));
+  expect(screen.getByDisplayValue("Urgent")).not.toBeNull();
 });

@@ -38,7 +38,7 @@ export const SearchBar = ({ filterTodo, clearFilter, filterByType }) => {
         <InputGroup style={{ position: "relative" }}>
           <Input
             type="text"
-            placeholder="Search task"
+            placeholder="Search todo"
             onChange={onChange}
             ref={inputRef}
           />

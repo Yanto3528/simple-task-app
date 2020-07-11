@@ -8,5 +8,9 @@ export const renderWithRouter = (component) => {
 };
 
 export const renderWithRedux = (component, store) => {
-  return render(<Provider store={store}>{component}</Provider>);
+  return render(
+    <Provider store={store}>
+      <Router>{component}</Router>
+    </Provider>
+  );
 };

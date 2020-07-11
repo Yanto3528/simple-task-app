@@ -29,12 +29,13 @@ const CreateTodo = ({ addTodo, history }) => {
   };
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form onSubmit={handleSubmit(onSubmit)} data-testid="form">
       <h1 style={{ textAlign: "center" }}>Create a new todo</h1>
       <InputGroup>
         <label htmlFor="title">Todo Title</label>
         <Input
           type="text"
+          id="title"
           placeholder="eg. Learn React..."
           name="title"
           value={title}
@@ -47,6 +48,7 @@ const CreateTodo = ({ addTodo, history }) => {
         <Textarea
           placeholder="eg. Learning how to create a website with React"
           rows="5"
+          id="description"
           name="description"
           value={description}
           onChange={onChange}
@@ -54,8 +56,14 @@ const CreateTodo = ({ addTodo, history }) => {
         {errors && errors.description && <p>* Description is required</p>}
       </InputGroup>
       <InputGroup>
-        <label htmlFor="title">Due Date</label>
-        <Input type="date" name="dueDate" value={dueDate} onChange={onChange} />
+        <label htmlFor="dueDate">Due Date</label>
+        <Input
+          type="date"
+          id="dueDate"
+          name="dueDate"
+          value={dueDate}
+          onChange={onChange}
+        />
         {errors && errors.dueDate && <p>* Due date is required</p>}
       </InputGroup>
       <InputGroup>
