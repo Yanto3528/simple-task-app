@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import illustration from "../../assets/not-found.png";
+import illustration from "../../assets/not-found-min.png";
 
 import { NotFoundContainer } from "./styles";
 
