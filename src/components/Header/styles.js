@@ -28,6 +28,7 @@ export const NavMenu = styled.ul`
 export const NavMenuItem = styled.li`
   a {
     color: #333;
+    font-weight: 600;
     position: relative;
     transition: all 0.4s;
   }
